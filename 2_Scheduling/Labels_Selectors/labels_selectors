@@ -1,0 +1,14 @@
+List pods with env=dev
+=> kubectl get pods --selector env=dev --no-headers | wc -l
+
+How many pods in business unit finance?
+=> kubectl get pods --selector bu=finance --no-headers | wc -l
+
+How many pods, replicasets and other objects
+=> kubectl get all --selector env=prod
+
+Identity pods in bu finance env dev and tier front-end
+=> kubectl get pods --selector env=dev,tier=front-end,bu=finance
+
+Unable to create a ReplicaSet likely issue??
+=> (selector>matchLabels) doesn't match with (tempalte>metadata>labels) 

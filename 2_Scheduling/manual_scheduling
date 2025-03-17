@@ -1,0 +1,21 @@
+Create pod using nginx.yml
+=> kubectl create -f nginx.yml
+
+A pod is in pending state Cause??
+=> Kube Scheduler is not present
+	Check by:
+	=> kubectl get pods -n kubesystem
+
+Manual Scheduling:
+=> pod-definition.yml
+	=> spec:
+		nodeName: node1
+   kubeclt replace --force -f pod-definition.yml
+
+Continuous monitoring of pods
+=> kubectl get pods --watch
+
+Change the pod to control-plane node
+=> vi nginx.yml
+   kubectl replace --force -f nignx.yml
+
